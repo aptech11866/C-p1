@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace assigmnet1
+{
+    class Program
+    {
+        class Employee
+        {
+            string name ="";
+            int empId =0; 
+            double salary  = 0;
+            string department = "";
+
+            public Employee(string name, int empId, double salary, string department)
+            {
+                this.name = name;
+                this.empId = empId;
+                this.salary = salary;
+                this.department = department;
+            }
+            public string getName() { 
+                return name;
+            }
+            public int getEmpId() { 
+            return empId;   
+            }
+            public double getSalary() { 
+            return salary;
+            }
+            public string getDepartment() { 
+            return department;
+            }
+
+            public void setName(string name)
+            {
+                this.name = name;
+            }
+            public void setEmpId(int empId) { 
+            this.empId = empId;
+
+            }
+            public void setSalary(double salary) {
+            this.salary = salary;
+            }
+            public void setDepartment(string department) { 
+            this.department= department;
+            }
+        }
+        static void Main(string[] args)
+        {
+
+            Employee emp1 = new Employee("Ammar", 101, 50000, "HR");
+            Console.WriteLine(emp1.getSalary());
+            Console.WriteLine(emp1.getDepartment());
+            Console.WriteLine(emp1.getName());
+        }
+    }
+}
