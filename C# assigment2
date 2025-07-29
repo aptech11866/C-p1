@@ -1,0 +1,123 @@
+using System;
+
+namespace SchoolSystem
+{
+    // Base Class: Person
+    class Person
+    {
+        protected string name;
+        protected int age;
+
+        public Person(string name, int age)
+        {
+            this.name = name;
+            this.age = age;
+        }
+
+        public virtual void DisplayInfo()
+        {
+            Console.WriteLine($"Name: {name}");
+            Console.WriteLine($"Age: {age}");
+        }
+
+        public void Greet()
+        {
+            Console.WriteLine($"Hello, my name is {name}.");
+        }
+    }
+
+    // Derived Class: Student
+    class Student : Person
+    {
+        private string studentId;
+        private double gpa;
+
+        public Student(string name, int age, string studentId, double gpa) 
+            : base(name, age)
+        {
+            this.studentId = studentId;
+            this.gpa = gpa;
+        }
+
+        public override void DisplayInfo()
+        {
+            base.DisplayInfo();
+            Console.WriteLine($"Student ID: {studentId}");
+            Console.WriteLine($"GPA: {gpa}");
+        }
+    }
+
+    // Derived Class: Teacher
+    class Teacher : Person
+    {
+        private string subject;
+        private double salary;
+
+        public Teacher(string name, int age, string subject, double salary) 
+            : base(name, age)
+        {
+            this.subject = subject;
+            this.salary = salary;
+        }
+
+        public override void DisplayInfo()
+        {
+            base.DisplayInfo();
+            Console.WriteLine($"Subject: {subject}");
+            Console.WriteLine($"Salary: {salary}");
+        }
+
+        public void Teach()
+        {
+            Console.WriteLine($"Teaching {subject}...");
+        }
+    }
+
+    // Derived Class: Staff
+    class Staff : Person
+    {
+        private string position;
+
+        public Staff(string name, int age, string position)
+            : base(name, age)
+        {
+            this.position = position;
+        }
+
+        public override void DisplayInfo()
+        {
+            base.DisplayInfo();
+            Console.WriteLine($"Position: {position}");
+        }
+
+        public void Work()
+        {
+            Console.WriteLine($"Working as {position}...");
+        }
+    }
+
+    // Example usage
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student = new Student("Ammar", 20, "S101", 3.85);
+            Teacher teacher = new Teacher("Miss Fatima", 35, "Mathematics", 75000);
+            Staff staff = new Staff("Ali", 40, "Librarian");
+
+            Console.WriteLine("== Student Info ==");
+            student.Greet();
+            student.DisplayInfo();
+
+            Console.WriteLine("\n== Teacher Info ==");
+            teacher.Greet();
+            teacher.DisplayInfo();
+            teacher.Teach();
+
+            Console.WriteLine("\n== Staff Info ==");
+            staff.Greet();
+            staff.DisplayInfo();
+            staff.Work();
+        }
+    }
+}
